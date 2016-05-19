@@ -17,13 +17,13 @@ def check_answer():
 	if not 'num' in session:
 		session['num'] = random.randrange(0, 101)
 	answer = request.form['guess']
-
-	if session['num'] > answer:
-		statement = "Too low! Try again!"
-	elif session['num'] < answer:
-		statement = "Too high! Try again!"
-	elif session['num'] == answer:
-		statement = "Correct!"
+	if session['num'] > int(answer):
+		if session['num'] > answer:
+			statement = "Too low! Try again!"
+		elif session['num'] < answer:
+			statement = "Too high! Try again!"
+		elif session['num'] == answer:
+			statement = "Correct!"
 		
 	return redirect('/', data = session['statement'])
 if __name__ =="__main__":
