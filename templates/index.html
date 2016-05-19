@@ -1,6 +1,8 @@
 <html>
 <head>
 	<title>RNG: The Game</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="{{url_for('static', filename='main.js')}}" charset="utf-8"></script>
 </head>
 <body>
 	<div class = "container">
@@ -10,10 +12,12 @@
 		<form action='/restart' method='get'>
 			<input type="submit" value="Restart">
 		</form>
-		<form action="/answer" method="post">
+
+		<form class='guess'>
 			<input type="number" name="guess" min="1" max="100">
 			<input type="submit" value ="submit">
 		</form>
+
 		<div class="feedback {{session['result']['classname']}}">
 			<h1>{{session['result']['text']}}</h1>
 		</div>
