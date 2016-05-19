@@ -7,13 +7,31 @@
 		<h1>Welcome to the Great Number Game</h1>
 		<p>I am thinking of a number between 1 and 100</p>
 		<p>Take a guess!</p>
+		<form action='/restart' method='get'>
+			<input type="submit" value="Restart">
+		</form>
 		<form action="/answer" method="post">
 			<input type="number" name="guess" min="1" max="100">
 			<input type="submit" value ="submit">
 		</form>
-		<div class="feedback">
-			{{ data }}
+		<div class="feedback {{session['result']['classname']}}">
+			<h1>{{session['result']['text']}}</h1>
 		</div>
 	</div>
+	<style media="screen">
+		.feedback {
+			height: 300px;
+			width: 300px;
+		}
+		.True {
+			background-color: green;
+		}
+		.below {
+			background-color: darkred;
+		}
+		.above {
+			background-color: red;
+		}
+	</style>
 </body>
 </html>
